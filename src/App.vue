@@ -22,7 +22,6 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   color: $black;
 }
-
 ::selection {
   background: $green;
   color: #fff;
