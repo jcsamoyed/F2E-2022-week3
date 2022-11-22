@@ -21,6 +21,9 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: $black;
+  * {
+    box-sizing: border-box;
+  }
 }
 ::selection {
   background: $green;

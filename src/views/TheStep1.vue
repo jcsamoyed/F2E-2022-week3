@@ -11,6 +11,7 @@
       <h1>TT 資訊Scrum新手村懶人包</h1>
       <p class="subtitle">透過越早蒐集回饋，去調適下一步的行動「思維」</p>
     </div>
+    <TheButton>接受挑戰</TheButton>
     <img
       src="@/assets/images/step1/puzzle-1.svg"
       class="puzzle puzzle-1"
@@ -28,6 +29,15 @@
     />
   </section>
 </template>
+
+<script>
+import TheButton from '@/components/TheButton'
+export default {
+  components: {
+    TheButton
+  }
+}
+</script>
 
 <style lang="scss" scoped>
 @import '@/assets/scss/variables';
