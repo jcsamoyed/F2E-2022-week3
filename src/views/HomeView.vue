@@ -1,11 +1,22 @@
 <template>
-  <main></main>
+  <main>
+    <component :is="`TheStep${currentStep}`"></component>
+  </main>
 </template>
 
 <script>
+import TheStep1 from '@/views/TheStep1.vue'
+
 export default {
   name: 'HomeView',
-  components: {}
+  components: {
+    TheStep1
+  },
+  computed: {
+    currentStep() {
+      return this.$store.state.currentStep
+    }
+  }
 }
 </script>
 
