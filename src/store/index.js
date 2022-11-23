@@ -4,15 +4,12 @@ export default createStore({
   state: {
     currentStep: 1
   },
-  getters: {
-  },
+  getters: {},
   mutations: {
-    SET_CURRENT_STEP (state, step) {
-      state.currentStep = step
+    SET_CURRENT_STEP(state, step) {
+      state.currentStep += step
     }
   },
-  actions: {
-  },
-  modules: {
-  }
+  actions: {},
+  modules: {}
 })

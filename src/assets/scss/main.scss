@@ -1,1 +1,15 @@
 @import '@/assets/scss/reset';
+
+section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  height: calc(100vh - 60px);
+  overflow: hidden;
+  z-index: 2;
+}
+.container {
+  width: 90%;
+  max-width: 1680px;
+}
