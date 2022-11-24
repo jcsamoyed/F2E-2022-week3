@@ -1,9 +1,22 @@
 <template>
   <header>
     <h2>Scrum 新手村</h2>
-    <div class="progress-bar"></div>
+    <div
+      class="progress-bar"
+      :style="{ width: `calc(100% / 9 *${currentStep})` }"
+    ></div>
   </header>
 </template>
+
+<script>
+export default {
+  computed: {
+    currentStep() {
+      return this.$store.state.currentStep
+    }
+  }
+}
+</script>
 
 <style lang="scss" scoped>
 @import '@/assets/scss/variables';
@@ -22,7 +35,6 @@ h2 {
 }
 .progress-bar {
   position: absolute;
-  width: 10%;
   height: 100%;
   top: 0;
   left: 0;
