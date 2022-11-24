@@ -1,6 +1,6 @@
 <template>
   <button :class="type" :disabled="disabled">
-    <span class="inner">
+    <span class="inner" :class="{ plain: plain }">
       <slot></slot>
     </span>
   </button>
@@ -12,6 +12,10 @@ export default {
     type: {
       type: String,
       default: 'next'
+    },
+    plain: {
+      type: Boolean,
+      default: false
     },
     disabled: {
       type: Boolean,
@@ -38,17 +42,27 @@ button {
   &:hover {
     .inner {
       background-color: $yellow-light;
+      &.plain {
+        background-color: $gray;
+      }
     }
   }
   &:disabled {
     cursor: not-allowed;
     .inner {
       background-color: $yellow-dark;
+      &.plain {
+        background-color: $gray-dark;
+      }
     }
     &:active {
       .inner {
         background-color: $yellow-dark;
         transform: translate3d(-6px, -6px, 0);
+        &.plain {
+          background-color: $gray-dark;
+          transform: translate3d(-6px, -6px, 0);
+        }
       }
     }
   }
@@ -73,5 +87,8 @@ button {
   transform: translate3d(-6px, -6px, 0);
   transition: transform 240ms cubic-bezier(0.175, 0.885, 0.32, 1.275) 220ms,
     background-color 240ms;
+  &.plain {
+    background-color: #fff;
+  }
 }
 </style>
