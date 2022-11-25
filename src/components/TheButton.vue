@@ -31,7 +31,7 @@ export default {
   right: 36px;
 }
 button {
-  width: 335px;
+  width: 240px;
   background-color: $black;
   border: none;
   padding: 0;
@@ -66,11 +66,11 @@ button {
   width: 100%;
   background-color: $yellow;
   color: $black;
-  font-size: 32px;
+  font-size: 28px;
   font-weight: 700;
   line-height: 1;
   border: $border;
-  padding: 11px;
+  padding: 12px;
   transform: translate3d(-6px, -6px, 0);
   transition: transform 240ms cubic-bezier(0.175, 0.885, 0.32, 1.275) 220ms,
     background-color 240ms;

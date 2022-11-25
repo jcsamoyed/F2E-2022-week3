@@ -40,7 +40,7 @@ export default {
 
 .row {
   display: flex;
-  margin-bottom: 35px;
+  margin-bottom: 24px;
   align-items: center;
   &:last-child {
     margin-bottom: unset;
@@ -50,9 +50,12 @@ export default {
   flex-shrink: 0;
   width: 95px;
   text-align: center;
+  .avatar {
+    width: 80px;
+  }
   span {
     display: block;
-    font-size: 24px;
+    font-size: 16px;
     margin-top: 20px;
   }
   &.square {
@@ -66,14 +69,16 @@ export default {
   width: 95px;
 }
 .arrow {
+  width: 20px;
   margin: 0 20px;
 }
 .border {
+  width: 100%;
   background-color: #fff;
   border: $border;
-  font-size: 24px;
+  font-size: 20px;
   line-height: 1.5;
-  padding: 30px;
+  padding: 20px;
   box-shadow: 6px 6px 0 $black;
 }
 </style>

@@ -8,6 +8,7 @@
           href="https://www.atlassian.com/zh/software/jira"
           target="_blank"
           rel="noreferrer noopener"
+          title="Jira"
           class="logo"
         >
           <img src="@/assets/images/common/logo-jira.png" alt="Jira logo" />
@@ -40,7 +41,9 @@
         </div>
       </div>
     </div>
-    <TheButton @click="goNextStep">我完成了</TheButton>
+    <TheButton @click="goNextStep" :disabled="isBtnDisabled"
+      >我完成了</TheButton
+    >
   </section>
 </template>
 
@@ -53,6 +56,11 @@ export default {
   components: {
     TheDialog,
     TheButton
+  },
+  data() {
+    return {
+      isBtnDisabled: true
+    }
   },
   methods: {
     initLottie() {
@@ -77,6 +85,12 @@ export default {
 <style lang="scss" scoped>
 @import '@/assets/scss/variables';
 
+section {
+  align-items: flex-start;
+}
+.container {
+  margin-top: 5%;
+}
 .logo {
   display: inline-block;
   background-color: #fff;
@@ -104,8 +118,11 @@ export default {
   width: 80px;
 }
 h3 {
-  font-size: 32px;
+  font-size: 28px;
   font-weight: 700;
+}
+.todo-block {
+  width: calc((100% - 160px) / 2);
 }
 .todo-wrap {
   display: flex;
@@ -115,10 +132,14 @@ h3 {
 }
 .todo-item {
   background-color: #fff;
-  font-size: 24px;
-  padding: 28px;
+  font-size: 20px;
+  line-height: 1.2;
+  padding: 20px;
   border: $border;
   box-shadow: 6px 6px 0 $green;
+}
+.backlog-block {
+  width: calc((100% - 160px) / 2);
 }
 .backlog-wrap {
   display: flex;
@@ -126,17 +147,17 @@ h3 {
   row-gap: 16px;
   background-color: #fff;
   border: $border;
-  padding: 10px 50px;
+  padding: 16px 50px;
   margin-top: 10px;
 }
 .backlog-item {
   width: 100%;
-  height: 86px;
+  height: 70px;
   border: $border-dashed;
 }
 .priority {
   display: block;
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 700;
   color: $green;
   text-align: center;
