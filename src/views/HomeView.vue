@@ -7,12 +7,14 @@
 <script>
 import TheStep1 from '@/views/TheStep1.vue'
 import TheStep2 from '@/views/TheStep2.vue'
+import TheStep3 from '@/views/TheStep3.vue'
 
 export default {
   name: 'HomeView',
   components: {
     TheStep1,
-    TheStep2
+    TheStep2,
+    TheStep3
   },
   computed: {
     currentStep() {
