@@ -1,5 +1,5 @@
 <template>
-  <section v-if="isShowPopup">
+  <section>
     <div class="popup-window">
       <img
         src="@/assets/images/common/popup-close.svg"
@@ -32,7 +32,8 @@ export default {
       default: 'warning'
     },
     btnText: {
-      type: String
+      type: String,
+      default: '確定'
     }
   },
   data() {
@@ -47,10 +48,10 @@ export default {
   },
   methods: {
     handleClose() {
-      this.isShowPopup = false
+      this.$emit('handle-close')
     },
     handleConfirm() {
-      this.$emit('click-popup-btn')
+      this.$emit('handle-confirm')
     }
   }
 }
@@ -72,6 +73,11 @@ section {
 }
 .popup-window {
   position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 70%;
+  max-width: 860px;
   background-color: #fff;
   padding: 70px;
   border: $border;
@@ -93,7 +99,7 @@ section {
   margin: 0 auto;
 }
 p {
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 500;
   margin-top: 32px;
   margin-bottom: 50px;

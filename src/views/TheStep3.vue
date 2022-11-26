@@ -18,13 +18,15 @@
       <div class="content">
         <div class="todo-block">
           <h3>產品待辦事項(Item)</h3>
-          <div class="todo-wrap">
-            <div class="todo-item">
-              後台職缺管理功能(資訊上架、下架、顯示應徵者資料)
+          <div ref="todoList" class="todo-wrap">
+            <div
+              v-for="item in todoList"
+              :key="item.id"
+              class="todo-item"
+              :data-id="item.id"
+            >
+              {{ item.name }}
             </div>
-            <div class="todo-item">會員系統(登入、註冊、權限管理)</div>
-            <div class="todo-item">應徵者的線上履歷編輯器</div>
-            <div class="todo-item">前台職缺列表、應徵</div>
           </div>
         </div>
         <div ref="arrow" class="arrow"></div>
@@ -32,10 +34,7 @@
           <h3>產品待辦清單(Product Backlog)</h3>
           <div class="backlog-wrap">
             <span class="priority">優先度高</span>
-            <div class="backlog-item"></div>
-            <div class="backlog-item"></div>
-            <div class="backlog-item"></div>
-            <div class="backlog-item"></div>
+            <div ref="backlogList" class="backlog-list"></div>
             <span class="priority">優先度低</span>
           </div>
         </div>
@@ -45,21 +44,64 @@
       >我完成了</TheButton
     >
   </section>
+  <ThePopup
+    v-if="isShowPopup"
+    @handle-confirm="handleConfirm"
+    @handle-close="handleClose"
+    :type="popupData.type"
+    >{{ popupData.text }}</ThePopup
+  >
 </template>
 
 <script>
 import lottie from 'lottie-web'
+import Sortable from 'sortablejs'
 import TheDialog from '@/components/TheDialog'
+import ThePopup from '@/components/ThePopup'
 import TheButton from '@/components/TheButton'
 
 export default {
   components: {
     TheDialog,
+    ThePopup,
     TheButton
   },
   data() {
     return {
-      isBtnDisabled: true
+      todoList: [
+        {
+          id: 1,
+          name: '後台職缺管理功能(資訊上架、下架、顯示應徵者資料)'
+        },
+        {
+          id: 2,
+          name: '會員系統(登入、註冊、權限管理)'
+        },
+        {
+          id: 3,
+          name: '應徵者的線上履歷編輯器'
+        },
+        {
+          id: 4,
+          name: '前台職缺列表、應徵'
+        }
+      ],
+      backlogList: [],
+      answerList: ['2', '4', '3', '1'],
+      isShowPopup: false,
+      isSuccess: false,
+      popupData: {
+        type: 'warning',
+        text: null
+      }
+    }
+  },
+  computed: {
+    isBtnDisabled() {
+      if (this.backlogList.length) {
+        return false
+      }
+      return true
     }
   },
   methods: {
@@ -72,12 +114,56 @@ export default {
         path: 'lottie/arrow.json'
       })
     },
+    initSortable() {
+      const vm = this
+      Sortable.create(this.$refs.todoList, {
+        group: 'todoBacklog',
+        sort: true,
+        animation: 150,
+        chosenClass: 'chosen'
+      })
+      const backlogList = Sortable.create(this.$refs.backlogList, {
+        group: 'todoBacklog',
+        sort: true,
+        animation: 150,
+        filter: '.backlog-item',
+        chosenClass: 'chosen',
+        onChange(event) {
+          vm.backlogList = backlogList.toArray()
+        }
+      })
+    },
     goNextStep() {
-      this.$store.commit('SET_CURRENT_STEP', 1)
+      this.popupData.type = 'warning'
+      this.isSuccess = false
+      this.isShowPopup = true
+      if (this.backlogList.length < 4) {
+        this.popupData.text = '還沒填答完成，請再接再厲繼續挑戰！'
+        return
+      }
+      if (
+        JSON.stringify(this.backlogList) !== JSON.stringify(this.answerList)
+      ) {
+        this.popupData.text = 'Oops...優先級不太對喔！再試一次！'
+      } else {
+        this.popupData.type = 'success'
+        this.popupData.text = '太棒了！挑戰成功！'
+        this.isSuccess = true
+      }
+    },
+    handleConfirm() {
+      this.isShowPopup = false
+      if (this.isSuccess) {
+        this.$store.commit('SET_CURRENT_STEP', 1)
+      }
+    },
+    handleClose() {
+      this.isShowPopup = false
     }
   },
   mounted() {
     this.initLottie()
+    this.initSortable()
   }
 }
 </script>
@@ -89,7 +175,7 @@ section {
   align-items: flex-start;
 }
 .container {
-  margin-top: 5%;
+  margin-top: 2%;
 }
 .logo {
   display: inline-block;
@@ -112,7 +198,7 @@ section {
   display: flex;
   justify-content: center;
   column-gap: 40px;
-  margin-top: 50px;
+  margin-top: 40px;
 }
 .arrow {
   width: 80px;
@@ -137,6 +223,10 @@ h3 {
   padding: 20px;
   border: $border;
   box-shadow: 6px 6px 0 $green;
+  cursor: move;
+  &.chosen {
+    box-shadow: 6px 6px 0 $yellow;
+  }
 }
 .backlog-block {
   width: calc((100% - 160px) / 2);
@@ -150,9 +240,13 @@ h3 {
   padding: 16px 50px;
   margin-top: 10px;
 }
-.backlog-item {
+.backlog-list {
+  display: flex;
+  flex-direction: column;
+  row-gap: 16px;
+  padding: 16px;
   width: 100%;
-  height: 70px;
+  min-height: 360px;
   border: $border-dashed;
 }
 .priority {
