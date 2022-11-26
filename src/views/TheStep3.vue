@@ -184,7 +184,6 @@ section {
   margin: 0 4px;
   box-shadow: 0px 0px 5px 2px rgba(51, 51, 51, 0.25);
   border-radius: 5px;
-  vertical-align: middle;
   transition-duration: 0.2s;
   &:hover {
     box-shadow: 0px 0px 10px 2px rgba(96, 199, 184, 0.8);
@@ -192,6 +191,7 @@ section {
   img {
     display: inline-block;
     height: 24px;
+    vertical-align: sub;
   }
 }
 .content {
