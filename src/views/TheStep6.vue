@@ -88,7 +88,7 @@
               >
                 <img
                   src="@/assets/images/common/logo-confluence.png"
-                  alt="Jira logo"
+                  alt="Confluence logo"
                 />
               </a>
             </p>

@@ -40,5 +40,6 @@ h2 {
   left: 0;
   background-color: $yellow;
   z-index: -1;
+  transition-duration: 0.2s;
 }
 </style>
