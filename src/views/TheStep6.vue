@@ -1,7 +1,7 @@
 <template>
   <section>
     <div class="container">
-      <TheDialog avatarType="square" avatarName="PO_小敏"
+      <TheDialog avatarType="circle-1" avatarName="開發_小斯"
         >等等等等等，你都還不知道什麼是 Sprint
         吧！讓我先為你介紹一下～仔細聽好唷，等等會考考你！
       </TheDialog>
@@ -128,8 +128,8 @@ export default {
 <style lang="scss" scoped>
 @import '@/assets/scss/variables';
 
-section {
-  align-items: center;
+.container {
+  margin-top: 2%;
 }
 b {
   font-weight: 700;
