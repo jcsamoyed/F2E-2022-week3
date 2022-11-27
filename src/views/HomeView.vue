@@ -9,6 +9,7 @@ import TheStep1 from '@/views/TheStep1.vue'
 import TheStep2 from '@/views/TheStep2.vue'
 import TheStep3 from '@/views/TheStep3.vue'
 import TheStep4 from '@/views/TheStep4.vue'
+import TheStep5 from '@/views/TheStep5.vue'
 
 export default {
   name: 'HomeView',
@@ -16,7 +17,8 @@ export default {
     TheStep1,
     TheStep2,
     TheStep3,
-    TheStep4
+    TheStep4,
+    TheStep5
   },
   computed: {
     currentStep() {
