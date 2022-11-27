@@ -238,8 +238,14 @@ h3 {
   padding: 20px;
   border: $border;
   box-shadow: 6px 6px 0 $green;
+  transition-duration: 0.2s;
   cursor: move;
+  &:hover {
+    background-color: $green;
+    box-shadow: 6px 6px 0 $black;
+  }
   &.chosen {
+    background-color: #fff;
     box-shadow: 6px 6px 0 $yellow;
   }
   &::after {

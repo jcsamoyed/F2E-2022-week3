@@ -225,15 +225,21 @@ export default {
   padding: 20px;
   border: $border;
   box-shadow: 6px 6px 0 $green;
-  cursor: move;
   user-select: none; /* standard syntax */
   -webkit-user-select: none; /* for Chrome、Safari */
   -moz-user-select: none; /* for Mozilla、Firefox */
-  &:nth-child(odd) {
-    right: 100px;
+  transition-duration: 0.2s;
+  cursor: move;
+  &:hover {
+    background-color: $green;
+    box-shadow: 6px 6px 0 $black;
   }
   &.chosen {
+    background-color: #fff;
     box-shadow: 6px 6px 0 $yellow;
+  }
+  &:nth-child(odd) {
+    right: 100px;
   }
   span {
     display: block;

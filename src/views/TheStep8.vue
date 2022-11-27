@@ -213,7 +213,12 @@ label {
   padding: 20px;
   border: solid 3px #333;
   box-shadow: 6px 6px 0 #60c7b8;
+  transition-duration: 0.2s;
   cursor: pointer;
+  &:hover {
+    background-color: $green;
+    box-shadow: 6px 6px 0 $black;
+  }
   input {
     width: 20px;
     height: 20px;
