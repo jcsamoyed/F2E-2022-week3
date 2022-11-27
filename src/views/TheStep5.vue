@@ -162,7 +162,7 @@ export default {
       this.isSuccess = false
       this.isShowPopup = true
       if (this.currentPoint <= 3) {
-        this.popupData.text = '還沒填答完成，請再接再厲繼續挑戰！'
+        this.popupData.text = '短衝時數太少囉！請再試一次！'
         return
       }
       if (this.currentPoint > 20) {
