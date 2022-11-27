@@ -147,7 +147,19 @@ export default {
       })
     },
     goNextStep() {
-      this.$store.commit('SET_CURRENT_STEP', 1)
+      this.isShowPopup = true
+      this.isSuccess = true
+      this.popupData.type = 'success'
+      this.popupData.text = '太棒了！挑戰成功！'
+    },
+    handleConfirm() {
+      this.isShowPopup = false
+      if (this.isSuccess) {
+        this.$store.commit('SET_CURRENT_STEP', 1)
+      }
+    },
+    handleClose() {
+      this.isShowPopup = false
     }
   },
   mounted() {
