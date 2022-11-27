@@ -219,13 +219,30 @@ label {
     background-color: $green;
     box-shadow: 6px 6px 0 $black;
   }
+
   input {
-    width: 20px;
-    height: 20px;
-    margin-top: 0;
-    margin-left: 0;
-    margin-right: 20px;
-    vertical-align: bottom;
+    position: relative;
+    display: inline-block;
+    width: 0;
+    margin: 0;
+    margin-right: 40px;
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 20px;
+      height: 20px;
+      box-sizing: border-box;
+      border: $border;
+      border-radius: 100px;
+    }
+    &:checked {
+      &::before {
+        background-color: $yellow;
+      }
+    }
   }
 }
 </style>
