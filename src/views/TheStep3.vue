@@ -128,7 +128,10 @@ export default {
         animation: 150,
         filter: '.backlog-item',
         chosenClass: 'chosen',
-        onChange(event) {
+        onChange() {
+          vm.backlogList = backlogList.toArray()
+        },
+        onRemove() {
           vm.backlogList = backlogList.toArray()
         }
       })
@@ -214,6 +217,7 @@ h3 {
   display: flex;
   flex-direction: column;
   row-gap: 16px;
+  min-height: 328px;
   margin-top: 42px;
 }
 .todo-item {
