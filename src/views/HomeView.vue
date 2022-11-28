@@ -38,6 +38,7 @@ export default {
 
 <style lang="scss" scoped>
 main {
+  min-height: calc(100vh - 60px);
   background-repeat: no-repeat;
   background-image: url(@/assets/images/common/bg-1.svg),
     url(@/assets/images/common/bg-2.svg), url(@/assets/images/common/bg-3.svg),
