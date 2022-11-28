@@ -47,6 +47,10 @@ export default {
 
 <style lang="scss" scoped>
 @import '@/assets/scss/variables';
+section {
+  height: calc(100vh - 60px);
+  overflow: hidden;
+}
 
 .block {
   position: absolute;

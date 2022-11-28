@@ -51,6 +51,8 @@ export default {
 <style lang="scss" scoped>
 section {
   align-items: center;
+  height: calc(100vh - 60px);
+  overflow: hidden;
 }
 .container {
   z-index: 5;

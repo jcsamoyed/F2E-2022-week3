@@ -62,11 +62,9 @@
           </div>
         </div>
       </div>
-      <TheButton @click="goNextStep" :disabled="isBtnDisabled"
-        >我完成了</TheButton
-      >
     </div>
   </section>
+  <TheButton @click="goNextStep" :disabled="isBtnDisabled">我完成了</TheButton>
   <ThePopup
     v-if="isShowPopup"
     @handle-confirm="handleConfirm"
@@ -160,6 +158,7 @@ export default {
 
 .container {
   margin-top: 2%;
+  margin-bottom: 2%;
 }
 .logo {
   display: inline-block;
@@ -192,6 +191,7 @@ export default {
 }
 h3 {
   width: calc(90% - 60% - 80px - 60px);
+  min-width: 280px;
   font-size: 28px;
   font-weight: 700;
   line-height: 1.5;

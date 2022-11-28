@@ -26,9 +26,10 @@ export default {
 @import '@/assets/scss/variables';
 
 .next {
-  position: absolute;
+  position: fixed;
   bottom: 36px;
   right: 36px;
+  z-index: 3;
 }
 button {
   width: 240px;

@@ -45,8 +45,8 @@
         </a>
       </TheDialog>
     </div>
-    <TheButton @click="goNextStep">接受挑戰</TheButton>
   </section>
+  <TheButton @click="goNextStep">接受挑戰</TheButton>
 </template>
 
 <script>
@@ -71,6 +71,7 @@ export default {
 
 .container {
   margin-top: 5%;
+  margin-bottom: 5%;
 }
 .logo {
   display: inline-block;

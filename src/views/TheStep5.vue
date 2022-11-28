@@ -38,11 +38,11 @@
           </div>
         </div>
       </div>
-      <TheButton @click="goNextStep" :disabled="isBtnDisabled"
-        >開始Sprint！</TheButton
-      >
     </div>
   </section>
+  <TheButton @click="goNextStep" :disabled="isBtnDisabled"
+    >開始Sprint！</TheButton
+  >
   <ThePopup
     v-if="isShowPopup"
     @handle-confirm="handleConfirm"
@@ -195,6 +195,7 @@ export default {
 
 .container {
   margin-top: 2%;
+  margin-bottom: 2%;
 }
 .content {
   display: flex;

@@ -40,10 +40,8 @@
         </div>
       </div>
     </div>
-    <TheButton @click="goNextStep" :disabled="isBtnDisabled"
-      >我完成了</TheButton
-    >
   </section>
+  <TheButton @click="goNextStep" :disabled="isBtnDisabled">我完成了</TheButton>
   <ThePopup
     v-if="isShowPopup"
     @handle-confirm="handleConfirm"
@@ -179,6 +177,7 @@ section {
 }
 .container {
   margin-top: 2%;
+  margin-bottom: 2%;
 }
 .logo {
   display: inline-block;

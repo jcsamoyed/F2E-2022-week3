@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <section class="popup-background">
     <div class="popup-window">
       <img
         src="@/assets/images/common/popup-close.svg"
@@ -60,8 +60,8 @@ export default {
 <style lang="scss" scoped>
 @import '@/assets/scss/variables';
 
-section {
-  position: absolute;
+.popup-background {
+  position: fixed;
   width: 100%;
   height: 100vh;
   top: 0;

@@ -96,8 +96,8 @@
         </div>
       </div>
     </div>
-    <TheButton @click="goNextStep">我了解了</TheButton>
   </section>
+  <TheButton @click="goNextStep">我了解了</TheButton>
 </template>
 
 <script>
@@ -130,6 +130,7 @@ export default {
 
 .container {
   margin-top: 2%;
+  margin-bottom: 2%;
 }
 b {
   font-weight: 700;

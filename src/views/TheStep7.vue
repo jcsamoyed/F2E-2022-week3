@@ -26,10 +26,8 @@
         </div>
       </div>
     </div>
-    <TheButton @click="goNextStep" :disabled="isBtnDisabled"
-      >我完成了</TheButton
-    >
   </section>
+  <TheButton @click="goNextStep" :disabled="isBtnDisabled">我完成了</TheButton>
   <ThePopup
     v-if="isShowPopup"
     @handle-confirm="handleConfirm"
@@ -171,16 +169,16 @@ export default {
 <style lang="scss" scoped>
 @import '@/assets/scss/variables';
 
+section {
+  overflow: hidden;
+}
 .container {
   position: relative;
   margin-top: 2%;
+  margin-bottom: 2%;
 }
 .background {
-  position: absolute;
-  height: 620px;
-  left: 50%;
-  top: 100px;
-  transform: translateX(-50%);
+  width: 100%;
 }
 .blank {
   min-width: 250px;
@@ -202,7 +200,7 @@ export default {
   column-gap: 3vw;
   position: absolute;
   right: 20%;
-  bottom: 120px;
+  bottom: 0;
 }
 .meeting-wrap {
   position: absolute;
